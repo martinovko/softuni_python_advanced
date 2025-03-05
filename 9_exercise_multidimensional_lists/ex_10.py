@@ -46,28 +46,44 @@ for i in range(len(commands)):
     if commands[i] == 'L':
         if valid_index(player_r,(player_c - 1), lair):
             player_c -= 1
-            lair[player_r][player_c] = 'P'
+            if lair[player_r][player_c] == 'B':
+                game_lost, lair = bunny_spreader(lair)
+                break
+            else:
+                lair[player_r][player_c] = 'P'
         else:
             win = True
         game_lost, lair = bunny_spreader(lair)
     elif commands[i] == 'R':
         if valid_index(player_r, (player_c + 1), lair):
             player_c += 1
-            lair[player_r][player_c] = 'P'
+            if lair[player_r][player_c] == 'B':
+                game_lost, lair = bunny_spreader(lair)
+                break
+            else:
+                lair[player_r][player_c] = 'P'
         else:
             win = True
         game_lost, lair = bunny_spreader(lair)
     elif commands[i] == 'U':
         if valid_index((player_r - 1), player_c, lair):
             player_r -= 1
-            lair[player_r][player_c] = 'P'
+            if lair[player_r][player_c] == 'B':
+                game_lost, lair = bunny_spreader(lair)
+                break
+            else:
+                lair[player_r][player_c] = 'P'
         else:
             win = True
         game_lost, lair = bunny_spreader(lair)
     elif commands[i] == 'D':
         if valid_index((player_r + 1), player_c, lair):
             player_r += 1
-            lair[player_r][player_c] = 'P'
+            if lair[player_r][player_c] == 'B':
+                game_lost, lair = bunny_spreader(lair)
+                break
+            else:
+                lair[player_r][player_c] = 'P'
         else:
             win = True
         game_lost, lair = bunny_spreader(lair)

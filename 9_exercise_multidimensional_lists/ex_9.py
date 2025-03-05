@@ -77,5 +77,5 @@ while commands:
         break
     if not game_on:
         print(f'Game over! ({miner_r}, {miner_c})')
-if coal > 1 and game_on:
+if coal >= 1 and game_on:
     print(f'{coal} pieces of coal left. ({miner_r}, {miner_c})')
